@@ -1,0 +1,60 @@
+import java.awt.event.*;
+import javax.swing.*;
+import java.awt.*;
+public class LoginWindow extends JFrame {
+	public LoginWindow() {
+		setVisible(true);
+		setTitle("Login Window");
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setBounds(200,200,300,200);
+		
+		//instance or object
+		JLabel lbluname=new JLabel ("Username: ");
+		lbluname.setBounds(20,20,75,10);
+		add(lbluname);
+		
+		JTextField txtuname=new JTextField();
+		txtuname.setBounds(85,15,85,20);
+		add(txtuname);
+		
+		JLabel lblpass=new JLabel ("Password: ");
+		lblpass.setBounds(20,50,75,10);
+		add(lblpass);
+		
+		JPasswordField txtpass=new JPasswordField();
+		txtpass.setBounds(85,45,85,20);
+		add(txtpass);
+		
+		JCheckBox chkshowpass = new JCheckBox("Show Password");
+		chkshowpass.setBounds(20,70,120,20);
+		add(chkshowpass);
+		
+		JButton btnlogin = new JButton("Login");
+		btnlogin.setBounds(20,90,80,20);
+		add(btnlogin);
+		
+		JButton btncancel = new JButton("Cancel");
+		btncancel.setBounds(128,90,80,20);
+		add(btncancel);
+		
+		chkshowpass.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent acer) {
+				if(chkshowpass.isSelected()) {
+					txtpass.setEchoChar((char) 0); }
+					else {
+						txtpass.setEchoChar('*');
+					}
+				}
+			
+		  });
+		
+		setLayout(null);
+	}
+	
+	public static void main(String[]args) {
+		SwingUtilities.invokeLater(() -> {
+			new LoginWindow();
+		});
+	}
+	
+}
