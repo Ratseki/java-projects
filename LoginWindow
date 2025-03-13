@@ -2,6 +2,8 @@ import java.awt.event.*;
 import javax.swing.*;
 import java.awt.*;
 public class LoginWindow extends JFrame {
+	JTextField txtuname;
+	JPasswordField txtpass;
 	public LoginWindow() {
 		setVisible(true);
 		setTitle("Login Window");
@@ -44,14 +46,32 @@ public class LoginWindow extends JFrame {
 					else {
 						txtpass.setEchoChar('*');
 					}
+				
 				}
-			
+		
+			// btncancel.addActionListener ()
+			   btnlogin.addActionListener(e -> login_check());
+			   btncancel.addActionListener(e -> System_exit(0));
 		  });
+		
+		
 		
 		setLayout(null);
 	}
 	
-	public static void main(String[]args) {
+	private void login_check() {
+		String uname=txtuname.getText();
+		String pass=new String(txtpass.getPassword());
+		
+		if(uname.equals("KC") && pass.equals("123"));
+			JOptionPane.showMessageDialog(this, "Login Notification", "You have successfully logged in", JOptionPane.INFORMATION_MESSAGE);
+	} else {
+		JOptionPane.showMessageDialog(this, "Login Notification", "You have successfully logged in", JOptionPane.ERROR_MESSAGE);	
+			}
+			
+	}
+	
+ 	public static void main(String[]args) {
 		SwingUtilities.invokeLater(() -> {
 			new LoginWindow();
 		});
