@@ -1,0 +1,16 @@
+import java.awt.*;
+import javax.swing.*;
+
+public class CPanel extends JFrame {
+	
+	public CPanel() {
+		setTitle("Dashboard")
+		setBounds(400,200,500,500);
+		setVisible(true);
+		
+		JPanel holder = new JPanel() {
+			private Image bg=new ImageIcon(getClass().getResource("*/bg.jpg")).getImage();
+		};
+	}
+
+}
