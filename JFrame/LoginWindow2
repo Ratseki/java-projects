@@ -1,0 +1,82 @@
+import java.awt.event.*;
+import javax.swing.*;
+import java.awt.*;
+
+public class LoginWindow extends JFrame {
+    JTextField txtuname;
+    JPasswordField txtpass;
+
+    public LoginWindow() {
+        setVisible(true);
+        setTitle("Login Window");
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setBounds(200, 200, 300, 200);
+
+        // Instance or object
+        JLabel lbluname = new JLabel("Username: ");
+        lbluname.setBounds(20, 20, 75, 20); // Adjusted height to 20
+        add(lbluname);
+
+        txtuname = new JTextField();
+        txtuname.setBounds(85, 20, 150, 20); // Adjusted width and position
+        add(txtuname);
+
+        JLabel lblpass = new JLabel("Password: ");
+        lblpass.setBounds(20, 50, 75, 20); // Adjusted height to 20
+        add(lblpass);
+
+        txtpass = new JPasswordField();
+        txtpass.setBounds(85, 50, 150, 20); // Adjusted width and position
+        add(txtpass);
+
+        JCheckBox chkshowpass = new JCheckBox("Show Password");
+        chkshowpass.setBounds(20, 80, 150, 20); // Adjusted position
+        add(chkshowpass);
+
+        JButton btnlogin = new JButton("Login");
+        btnlogin.setBounds(20, 110, 80, 20); // Adjusted position
+        add(btnlogin);
+
+        JButton btncancel = new JButton("Cancel");
+        btncancel.setBounds(120, 110, 80, 20); // Adjusted position
+        add(btncancel);
+
+        // Show/hide password functionality
+        chkshowpass.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent acer) {
+                if (chkshowpass.isSelected()) {
+                    txtpass.setEchoChar((char) 0); // Show password
+                } else {
+                    txtpass.setEchoChar('*'); // Hide password
+                }
+            }
+        });
+
+        // Login button action
+        btnlogin.addActionListener(e -> login_check());
+
+        // Cancel button action
+        btncancel.addActionListener(e -> System.exit(0));
+
+        setLayout(null);
+    }
+
+    private void login_check() {
+        String uname = txtuname.getText();
+        String pass = new String(txtpass.getPassword());
+
+        if (uname.equals("KC") && pass.equals("123")) {
+            JOptionPane.showMessageDialog(this, "You have successfully logged in", "Login Notification", JOptionPane.INFORMATION_MESSAGE);
+            this.dispose(); // Close the login window
+            new CPanel(); // Open the dashboard (CPanel)
+        } else {
+            JOptionPane.showMessageDialog(this, "Invalid username or password", "Login Notification", JOptionPane.ERROR_MESSAGE);
+        }
+    }
+
+    public static void main(String[] args) {
+        SwingUtilities.invokeLater(() -> {
+            new LoginWindow();
+        });
+    }
+}
