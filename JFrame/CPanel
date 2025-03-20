@@ -19,6 +19,12 @@ public class CPanel extends JFrame {
 			}
 		};
 		holder.setLayout(null);
+		setContentPane(holder);
+		
+		JLabel lblmessage=new JLabel("WELCOME")
+		lblmessage.setFont(new Font("Arial",Font.BOLD,50));
+		lblmessage.setForeground(Color.WHITE);
+		lblmessage.setBounds(20,50,200,200);
 	}
 
 }
