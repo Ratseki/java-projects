@@ -33,8 +33,18 @@ public class CPanel extends JFrame {
 		JMenuItem UserMan=new JMenuItem("User Management");
 		JMenuItem Logout=new JMenuItem("Logout");
 		
+		Logout.addActionListener(e->{
+			int confirm_exit=JOptionPane.showConfirmDialog(this,"Are you sure, You're logging out? ","Logout",
+					JOptionPane.YES_NO_CANCEL_OPTION);
+			if(confirm_exit==JOptionPane.YES_OPTION) {
+				System.exit(0);
+			}
+		}
+		
 		ControlPanel.add(UserMan);
+		ControlPanel.addSeparator();
 		ControlPanel.add(Logout);
+		
 		
 		ControlPanel.add(ControlPanel);
 		setJMenuBar(tigahawak);
