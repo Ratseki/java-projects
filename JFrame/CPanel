@@ -10,7 +10,15 @@ public class CPanel extends JFrame {
 		
 		JPanel holder = new JPanel() {
 			private Image bg=new ImageIcon(getClass().getResource("*/bg.jpg")).getImage();
+			
+			protected void paintComponent(Graphics brush) {
+				
+				super.paintComponent(brush);
+				brush.drawImage(bg, 0, 0, getWidth(), getHeight(), this); 
+						
+			}
 		};
+		holder.setLayout(null);
 	}
 
 }
