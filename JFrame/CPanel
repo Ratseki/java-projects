@@ -25,6 +25,19 @@ public class CPanel extends JFrame {
 		lblmessage.setFont(new Font("Arial",Font.BOLD,50));
 		lblmessage.setForeground(Color.WHITE);
 		lblmessage.setBounds(20,50,200,200);
+		
+		JMenuBar tigahawak=new JMenuBar();
+		
+		JMenu ControlPanel=new JMenu("Control Panel");
+		
+		JMenuItem UserMan=new JMenuItem("User Management");
+		JMenuItem Logout=new JMenuItem("Logout");
+		
+		ControlPanel.add(UserMan);
+		ControlPanel.add(Logout);
+		
+		ControlPanel.add(ControlPanel);
+		setJMenuBar(tigahawak);
 	}
 
 }
